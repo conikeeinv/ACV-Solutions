@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" fill="none">
+  <defs>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f8fff"/>
+      <stop offset="100%" stop-color="#7a5cff"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a26"/>
+      <stop offset="100%" stop-color="#12121a"/>
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f8fff"/>
+      <stop offset="50%" stop-color="#7a5cff"/>
+      <stop offset="100%" stop-color="#4f8fff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield shape -->
+  <path d="M36 4 L66 14 L66 38 C66 52 52 62 36 68 C20 62 6 52 6 38 L6 14 Z"
+        fill="url(#shieldGrad)" stroke="url(#borderGrad)" stroke-width="1.8"/>
+
+  <!-- Divider lines inside shield -->
+  <line x1="26" y1="32" x2="46" y2="32" stroke="#2a2a3a" stroke-width="0.6"/>
+
+  <!-- IT icon (top) - circuit/code brackets -->
+  <g transform="translate(36, 20)" fill="none" stroke="#4f8fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left bracket -->
+    <polyline points="-8,-6 -12,0 -8,6"/>
+    <!-- Right bracket -->
+    <polyline points="8,-6 12,0 8,6"/>
+    <!-- Slash -->
+    <line x1="3" y1="-6" x2="-3" y2="6"/>
+  </g>
+
+  <!-- Construction icon (bottom left) - crossed tools -->
+  <g transform="translate(26, 46)" fill="none" stroke="#f0a030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Hammer -->
+    <line x1="-6" y1="6" x2="2" y2="-2"/>
+    <rect x="1" y="-5" width="6" height="4" rx="0.5" transform="rotate(-45, 4, -3)" fill="#f0a030" stroke="none"/>
+    <!-- Wrench -->
+    <line x1="6" y1="6" x2="-1" y2="-1"/>
+    <circle cx="-3" cy="-3" r="3" fill="none" stroke="#f0a030"/>
+  </g>
+
+  <!-- Electrical icon (bottom right) - lightning bolt -->
+  <g transform="translate(46, 46)">
+    <polygon points="0,-7 -4,1 -1,1 -2,7 4,-1 1,-1 2,-7" fill="#4caf7d" stroke="none"/>
+  </g>
+
+  <!-- Company name -->
+  <text x="82" y="33" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif" font-size="26" font-weight="700" fill="#e8e8f0" letter-spacing="-0.5">
+    ACV
+  </text>
+  <text x="138" y="33" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif" font-size="26" font-weight="700" fill="url(#accentGrad)" letter-spacing="-0.5">
+    Solutions
+  </text>
+
+  <!-- Tagline with service dots -->
+  <text x="82" y="50" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif" font-size="9" fill="#9999aa" letter-spacing="2" text-transform="uppercase">
+    IT
+  </text>
+  <circle cx="100" cy="47.5" r="1.5" fill="#4f8fff"/>
+  <text x="106" y="50" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif" font-size="9" fill="#9999aa" letter-spacing="2">
+    CONSTRUCTION
+  </text>
+  <circle cx="198" cy="47.5" r="1.5" fill="#f0a030"/>
+  <text x="204" y="50" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif" font-size="9" fill="#9999aa" letter-spacing="2">
+    ELECTRICAL
+  </text>
+
+  <!-- Accent line under text -->
+  <rect x="82" y="55" width="60" height="1.5" rx="0.75" fill="url(#accentGrad)" opacity="0.6"/>
+</svg>
