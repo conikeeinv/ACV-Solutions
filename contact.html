@@ -44,7 +44,7 @@
         <div>
           <h2 style="font-size:1.5rem;margin-bottom:8px;">Send Us a Message</h2>
           <p style="color:var(--text-secondary);margin-bottom:32px;font-size:0.95rem;">Fill out the form below and we'll be in touch shortly.</p>
-          <form action="#" method="POST">
+          <form id="contactForm" onsubmit="return handleSubmit(event)">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
               <div class="form-group">
                 <label for="firstName">First Name</label>
@@ -61,7 +61,7 @@
             </div>
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+              <input type="tel" id="phone" name="phone" placeholder="(281) 217-5211">
             </div>
             <div class="form-group">
               <label for="company">Company</label>
@@ -71,18 +71,21 @@
               <label for="service">Service of Interest</label>
               <select id="service" name="service">
                 <option value="">Select a service...</option>
-                <option value="it">Information Technology</option>
-                <option value="construction">Construction Services</option>
-                <option value="electrical">Electrical Services</option>
-                <option value="staffing">Staffing &amp; Recruitment</option>
-                <option value="other">Other</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Construction Services">Construction Services</option>
+                <option value="Electrical Services">Electrical Services</option>
+                <option value="Staffing & Recruitment">Staffing &amp; Recruitment</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div class="form-group">
               <label for="message">Message</label>
               <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message →</button>
+            <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message →</button>
+            <div id="formSuccess" style="display:none;text-align:center;padding:20px;margin-top:16px;background:rgba(76,175,125,0.1);border:1px solid rgba(76,175,125,0.3);border-radius:8px;color:#4caf7d;">
+              Your email client should open shortly. If it doesn't, please email us directly at <a href="mailto:info@getacvsolutions.com" style="color:#4caf7d;">info@getacvsolutions.com</a>
+            </div>
           </form>
         </div>
 
@@ -163,6 +166,35 @@
     document.getElementById('navToggle').addEventListener('click', function() {
       document.getElementById('navLinks').classList.toggle('open');
     });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      var firstName = document.getElementById('firstName').value;
+      var lastName = document.getElementById('lastName').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var company = document.getElementById('company').value;
+      var service = document.getElementById('service').value;
+      var message = document.getElementById('message').value;
+
+      var subject = encodeURIComponent('Inquiry from ' + firstName + ' ' + lastName + (service ? ' — ' + service : ''));
+      var body = encodeURIComponent(
+        'Name: ' + firstName + ' ' + lastName + '\n' +
+        'Email: ' + email + '\n' +
+        'Phone: ' + (phone || 'Not provided') + '\n' +
+        'Company: ' + (company || 'Not provided') + '\n' +
+        'Service: ' + (service || 'Not specified') + '\n\n' +
+        'Message:\n' + message
+      );
+
+      window.location.href = 'mailto:info@getacvsolutions.com?subject=' + subject + '&body=' + body;
+
+      document.getElementById('formSuccess').style.display = 'block';
+      document.getElementById('submitBtn').textContent = 'Message Sent ✓';
+      document.getElementById('submitBtn').style.opacity = '0.7';
+      document.getElementById('submitBtn').disabled = true;
+      return false;
+    }
   </script>
 </body>
 </html>
